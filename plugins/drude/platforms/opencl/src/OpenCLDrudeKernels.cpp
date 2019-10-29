@@ -260,7 +260,6 @@ void OpenCLIntegrateDrudeLangevinStepKernel::initialize(const System& system, co
     defines["PADDED_NUM_ATOMS"] = cl.intToString(cl.getPaddedNumAtoms());
     defines["NUM_NORMAL_PARTICLES"] = cl.intToString(normalParticleVec.size());
     defines["NUM_PAIRS"] = cl.intToString(pairParticleVec.size());
-    map<string, string> replacements;
     cl::Program program = cl.createProgram(OpenCLDrudeKernelSources::drudeLangevin, defines, "");
     kernel1 = cl::Kernel(program, "integrateDrudeLangevinPart1");
     kernel2 = cl::Kernel(program, "integrateDrudeLangevinPart2");

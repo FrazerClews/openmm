@@ -254,7 +254,6 @@ void CudaIntegrateDrudeLangevinStepKernel::initialize(const System& system, cons
     defines["PADDED_NUM_ATOMS"] = cu.intToString(cu.getPaddedNumAtoms());
     defines["NUM_NORMAL_PARTICLES"] = cu.intToString(normalParticleVec.size());
     defines["NUM_PAIRS"] = cu.intToString(pairParticleVec.size());
-    map<string, string> replacements;
     CUmodule module = cu.createModule(CudaKernelSources::vectorOps+CudaDrudeKernelSources::drudeLangevin, defines, "");
     kernel1 = cu.getKernel(module, "integrateDrudeLangevinPart1");
     kernel2 = cu.getKernel(module, "integrateDrudeLangevinPart2");

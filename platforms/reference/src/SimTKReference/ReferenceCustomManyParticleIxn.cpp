@@ -54,7 +54,6 @@ ReferenceCustomManyParticleIxn::ReferenceCustomManyParticleIxn(const CustomManyP
     map<string, vector<int> > dihedrals;
     Lepton::ParsedExpression energyExpr = CustomManyParticleForceImpl::prepareExpression(force, functions, distances, angles, dihedrals);
     energyExpression = energyExpr.createProgram();
-    vector<string> particleParameterNames;
     if (force.getNonbondedMethod() != CustomManyParticleForce::NoCutoff)
         setUseCutoff(force.getCutoffDistance());
 

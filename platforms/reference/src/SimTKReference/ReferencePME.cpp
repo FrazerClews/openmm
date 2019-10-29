@@ -420,7 +420,7 @@ pme_reciprocal_convolution(pme_t     pme,
     double virxx,virxy,virxz,viryy,viryz,virzz;
     double bx,by,bz;
     double d1,d2;
-    double eterm,vfactor,struct2,ets2;
+    double eterm,struct2,ets2;
     double esum;
     double factor;
     double denom;

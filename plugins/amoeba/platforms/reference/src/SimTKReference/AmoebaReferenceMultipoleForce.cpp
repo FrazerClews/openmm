@@ -5976,7 +5976,6 @@ double AmoebaReferencePmeMultipoleForce::computeReciprocalSpaceInducedDipoleForc
     double multipole[10];
     double inducedDipole[3];
     double inducedDipolePolar[3];
-    double scales[3];
     const int deriv1[] = {1, 4, 7, 8, 10, 15, 17, 13, 14, 19};
     const int deriv2[] = {2, 7, 5, 9, 13, 11, 18, 15, 19, 16};
     const int deriv3[] = {3, 8, 9, 6, 14, 16, 12, 19, 17, 18};

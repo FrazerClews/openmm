@@ -978,7 +978,6 @@ void CpuCalcCustomNonbondedForceKernel::copyParametersToContext(ContextImpl& con
     // Record the values.
 
     int numParameters = force.getNumPerParticleParameters();
-    vector<double> params;
     for (int i = 0; i < numParticles; ++i) {
         vector<double> parameters;
         force.getParticleParameters(i, parameters);
@@ -1222,7 +1221,6 @@ void CpuCalcCustomGBForceKernel::copyParametersToContext(ContextImpl& context, c
     // Record the values.
 
     int numParameters = force.getNumPerParticleParameters();
-    vector<double> params;
     for (int i = 0; i < numParticles; ++i) {
         vector<double> parameters;
         force.getParticleParameters(i, parameters);
@@ -1278,7 +1276,6 @@ void CpuCalcCustomManyParticleForceKernel::copyParametersToContext(ContextImpl& 
     // Record the values.
 
     int numParameters = force.getNumPerParticleParameters();
-    vector<double> params;
     for (int i = 0; i < numParticles; ++i) {
         vector<double> parameters;
         int type;

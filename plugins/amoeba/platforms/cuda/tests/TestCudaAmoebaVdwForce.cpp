@@ -170,7 +170,7 @@ void testVdw() {
     
     for (int i = 0; i < numberOfParticles; i++) {
         int indexIV;
-        double mass, sigma, epsilon, reduction;
+        double sigma, epsilon, reduction;
         bool isAlchemical;
         amoebaVdwForce->getParticleParameters(i, indexIV, sigma, epsilon, reduction, isAlchemical);
         amoebaVdwForce->setParticleParameters(i, indexIV, 0.9*sigma, 2.0*epsilon, 0.95*reduction, isAlchemical);

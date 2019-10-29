@@ -1050,8 +1050,6 @@ static void testMultipoleIonsAndWaterPMEMutualPolarization() {
     std::vector<Vec3> forces;
     double energy;
 
-    std::vector<Vec3> inputGrid;
-
     setupAndGetForcesEnergyMultipoleIonsAndWater(AmoebaMultipoleForce::PME, AmoebaMultipoleForce::Mutual, 
                                                  cutoff, inputPmeGridDimension, testName, forces, energy);
 

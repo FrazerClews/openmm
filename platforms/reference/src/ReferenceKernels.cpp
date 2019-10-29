@@ -1246,7 +1246,6 @@ void ReferenceCalcCustomNonbondedForceKernel::copyParametersToContext(ContextImp
     // Record the values.
 
     int numParameters = force.getNumPerParticleParameters();
-    vector<double> params;
     for (int i = 0; i < numParticles; ++i) {
         vector<double> parameters;
         force.getParticleParameters(i, parameters);
@@ -1494,7 +1493,6 @@ void ReferenceCalcCustomGBForceKernel::copyParametersToContext(ContextImpl& cont
     // Record the values.
 
     int numParameters = force.getNumPerParticleParameters();
-    vector<double> params;
     for (int i = 0; i < numParticles; ++i) {
         vector<double> parameters;
         force.getParticleParameters(i, parameters);
@@ -1607,7 +1605,6 @@ void ReferenceCalcCustomExternalForceKernel::copyParametersToContext(ContextImpl
     // Record the values.
 
     int numParameters = force.getNumPerParticleParameters();
-    vector<double> params;
     for (int i = 0; i < numParticles; ++i) {
         int particle;
         vector<double> parameters;
@@ -1963,7 +1960,6 @@ void ReferenceCalcCustomManyParticleForceKernel::copyParametersToContext(Context
     // Record the values.
 
     int numParameters = force.getNumPerParticleParameters();
-    vector<double> params;
     for (int i = 0; i < numParticles; ++i) {
         vector<double> parameters;
         int type;

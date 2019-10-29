@@ -571,7 +571,6 @@ CUfunction CudaNonbondedUtilities::createInteractionKernel(const string& source,
         for(int i=0; i< (int) params.size();i++) {
             broadcastWarpData << params[i].getType() << " shfl" << params[i].getName() << ";\n";
             for(int j=0; j < params[i].getNumComponents(); j++) {
-                string name;
                 if (params[i].getNumComponents() == 1) {
                     broadcastWarpData << "shfl" << params[i].getName() << "=real_shfl(" << params[i].getName() <<"1,j);\n";
 
