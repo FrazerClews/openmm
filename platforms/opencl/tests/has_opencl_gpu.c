@@ -63,13 +63,11 @@ int check_devices(cl_platform_id platform_id)
 int main(int argc, char** argv) 
 {
     size_t p;
-    cl_int err;
     cl_platform_id platforms[10];
     cl_uint num_platforms;
     int status;
 
     /* Investigate all valid platform IDs */
-    err = clGetPlatformIDs(10, platforms, &num_platforms);
     if (num_platforms < 1) {
         printf("No OpenCL platforms found.\n");
         return 1;

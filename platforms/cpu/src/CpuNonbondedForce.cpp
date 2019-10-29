@@ -78,7 +78,6 @@ void CpuNonbondedForce::setUseCutoff(float distance, const CpuNeighborList& neig
         double dalphaR = alphaDispersionEwald*cutoffDistance;
         double dar2 = dalphaR * dalphaR;
         double dar4 = dar2*dar2;
-        double dar6 = dar4*dar2;
         double expterm = EXP(-dar2);
         inverseRcut6Expterm  = inverseRcut6*(1.0 - expterm * (1.0 + dar2 + 0.5*dar4));
     }
@@ -196,7 +195,6 @@ void CpuNonbondedForce::setUseLJPME(float alpha, int meshSize[3]) {
         double dalphaR = alphaDispersionEwald*cutoffDistance;
         double dar2 = dalphaR * dalphaR;
         double dar4 = dar2*dar2;
-        double dar6 = dar4*dar2;
         double expterm = EXP(-dar2);
         inverseRcut6Expterm  = inverseRcut6*(1.0 - expterm * (1.0 + dar2 + 0.5*dar4));
     }

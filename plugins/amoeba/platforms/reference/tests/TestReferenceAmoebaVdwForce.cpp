@@ -651,7 +651,6 @@ void setupAndGetForcesEnergyVdwWater(const std::string& sigmaCombiningRule, cons
 
     // addParticle: ivIndex, radius, epsilon, reductionFactor
 
-    int classIndex = 0;
     for (int ii = 0; ii < numberOfParticles; ii += 3) {
 
        system.addParticle( 1.5995000e+01);

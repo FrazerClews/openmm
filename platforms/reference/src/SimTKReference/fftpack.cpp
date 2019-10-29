@@ -348,7 +348,6 @@ fftpack_passf(int*   nac,
     double wai, war;
 
     idot = ido / 2;
-    nt = ip*idl1;
     ipph = (ip + 1) / 2;
     idp = ip*ido;
     if (ido >= l1)

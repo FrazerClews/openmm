@@ -1241,14 +1241,12 @@ void OpenCLCalcCMAPTorsionForceKernel::copyParametersToContext(ContextImpl& cont
     vector<mm_float4> coeffVec;
     vector<double> energy;
     vector<vector<double> > c;
-    int currentPosition = 0;
     for (int i = 0; i < numMaps; i++) {
         int size;
         force.getMapParameters(i, size, energy);
         if (size != mapPositionsVec[i].y)
             throw OpenMMException("updateParametersInContext: The size of a map has changed");
         CMAPTorsionForceImpl::calcMapDerivatives(size, energy, c);
-        currentPosition += 4*size*size;
         for (int j = 0; j < size*size; j++) {
             coeffVec.push_back(mm_float4((float) c[j][0], (float) c[j][1], (float) c[j][2], (float) c[j][3]));
             coeffVec.push_back(mm_float4((float) c[j][4], (float) c[j][5], (float) c[j][6], (float) c[j][7]));
@@ -2328,7 +2326,6 @@ double OpenCLCalcNonbondedForceKernel::execute(ContextImpl& context, bool includ
                 }
             }
             fft->execFFT(pmeGrid1, pmeGrid2, true);
-            mm_double4 boxSize = cl.getPeriodicBoxSizeDouble();
             if (cl.getUseDoublePrecision()) {
                 pmeConvolutionKernel.setArg<mm_double4>(4, recipBoxVectors[0]);
                 pmeConvolutionKernel.setArg<mm_double4>(5, recipBoxVectors[1]);
@@ -2427,7 +2424,6 @@ double OpenCLCalcNonbondedForceKernel::execute(ContextImpl& context, bool includ
                 }
             }
             dispersionFft->execFFT(pmeGrid1, pmeGrid2, true);
-            mm_double4 boxSize = cl.getPeriodicBoxSizeDouble();
             if (cl.getUseDoublePrecision()) {
                 pmeDispersionConvolutionKernel.setArg<mm_double4>(4, recipBoxVectors[0]);
                 pmeDispersionConvolutionKernel.setArg<mm_double4>(5, recipBoxVectors[1]);

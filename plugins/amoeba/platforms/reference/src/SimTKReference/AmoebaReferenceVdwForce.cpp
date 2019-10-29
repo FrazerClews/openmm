@@ -224,7 +224,6 @@ double AmoebaReferenceVdwForce::calculatePairIxn(double combinedSigma, double co
     else
         ReferenceForce::getDeltaR(particleJPosition, particleIPosition, deltaR);
 
-    double r_ij_2       = deltaR[ReferenceForce::R2Index];
     double r_ij         = deltaR[ReferenceForce::RIndex];
 
     double rho = r_ij / combinedSigma;

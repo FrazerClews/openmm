@@ -70,8 +70,6 @@ static void setupMultipoleAmmonia(System& system, AmoebaMultipoleForce* amoebaMu
     Vec3 c(0.0, 0.0, boxDimension);
     system.setDefaultPeriodicBoxVectors(a, b, c);
 
-    int numberOfParticles                             = 8;
-
     amoebaMultipoleForce->setNonbondedMethod(nonbondedMethod);
     amoebaMultipoleForce->setPolarizationType(polarizationType);
     amoebaMultipoleForce->setCutoffDistance(cutoff);
@@ -898,8 +896,6 @@ static void setupAndGetForcesEnergyMultipoleIonsAndWater(AmoebaMultipoleForce::N
 
     AmoebaMultipoleForce* amoebaMultipoleForce        = new AmoebaMultipoleForce();;
     int numberOfParticles                             = 8;
-    int numberOfWaters                                = 2;
-    int numberOfIons                                  = numberOfParticles - numberOfWaters*3;
 
     amoebaMultipoleForce->setNonbondedMethod(nonbondedMethod);
     amoebaMultipoleForce->setPolarizationType(polarizationType);
@@ -2739,8 +2735,7 @@ static void testParticleTotalDipoles() {
 static void testSystemMultipoleMoments() {
 
     std::string testName      = "testSystemMultipoleMoments";
-    
-    int numberOfParticles     = 648;
+
     int inputPmeGridDimension = 24;
     double cutoff             = 0.70;
 
@@ -2794,8 +2789,7 @@ static void testSystemMultipoleMoments() {
 static void testMultipoleGridPotential() {
 
     std::string testName      = "testMultipoleGridPotential";
-    
-    int numberOfParticles     = 648;
+
     int inputPmeGridDimension = 24;
     double cutoff             = 0.70;
 

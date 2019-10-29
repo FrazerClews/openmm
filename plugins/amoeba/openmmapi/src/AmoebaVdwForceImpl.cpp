@@ -119,16 +119,10 @@ double AmoebaVdwForceImpl::calcDispersionCorrection(const System& system, const 
     double vdwCut2 = vdwCut*vdwCut;
     double vdwCut3 = vdwCut2*vdwCut;
     double vdwCut4 = vdwCut2*vdwCut2;
-    double vdwCut5 = vdwCut2*vdwCut3;
-    double vdwCut6 = vdwCut3*vdwCut3;
-    double vdwCut7 = vdwCut3*vdwCut4;
 
     double vdwTaperCut2 = vdwTaperCut*vdwTaperCut;
     double vdwTaperCut3 = vdwTaperCut2*vdwTaperCut;
     double vdwTaperCut4 = vdwTaperCut2*vdwTaperCut2;
-    double vdwTaperCut5 = vdwTaperCut2*vdwTaperCut3;
-    double vdwTaperCut6 = vdwTaperCut3*vdwTaperCut3;
-    double vdwTaperCut7 = vdwTaperCut3*vdwTaperCut4;
 
     // get 5th degree multiplicative switching function coefficients;
 
@@ -158,7 +152,6 @@ double AmoebaVdwForceImpl::calcDispersionCorrection(const System& system, const 
     double ghal = 0.12;
 
     double elrc = 0.0; // This number is incremented and passed out at the end
-    double e = 0.0;
     double sigma, epsilon; // The pairwise sigma and epsilon parameters.
     int i = 0, k = 0; // Loop counters.
 

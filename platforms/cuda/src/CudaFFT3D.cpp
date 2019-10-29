@@ -50,17 +50,14 @@ CudaFFT3D::CudaFFT3D(CudaContext& context, int xsize, int ysize, int zsize, bool
         if (xsize%2 == 0) {
             packedAxis = 0;
             packedXSize /= 2;
-            bufferSize = packedXSize;
         }
         else if (ysize%2 == 0) {
             packedAxis = 1;
             packedYSize /= 2;
-            bufferSize = packedYSize;
         }
         else if (zsize%2 == 0) {
             packedAxis = 2;
             packedZSize /= 2;
-            bufferSize = packedZSize;
         }
         else
             packRealAsComplex = false;

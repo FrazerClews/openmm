@@ -266,11 +266,10 @@ void ReferenceCCMAAlgorithm::applyConstraints(vector<Vec3>& atomCoordinates,
     // main loop
 
     int iterations = 0;
-    int numberConverged = 0;
     vector<double> constraintDelta(_numberOfConstraints);
     vector<double> tempDelta(_numberOfConstraints);
     while (iterations < getMaximumNumberOfIterations()) {
-        numberConverged  = 0;
+        unsigned int numberConverged  = 0;
         for (int ii = 0; ii < _numberOfConstraints; ii++) {
             int atomI = _atomIndices[ii].first;
             int atomJ = _atomIndices[ii].second;

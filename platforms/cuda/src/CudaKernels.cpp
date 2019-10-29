@@ -1238,14 +1238,12 @@ void CudaCalcCMAPTorsionForceKernel::copyParametersToContext(ContextImpl& contex
     vector<float4> coeffVec;
     vector<double> energy;
     vector<vector<double> > c;
-    int currentPosition = 0;
     for (int i = 0; i < numMaps; i++) {
         int size;
         force.getMapParameters(i, size, energy);
         if (size != mapPositionsVec[i].y)
             throw OpenMMException("updateParametersInContext: The size of a map has changed");
         CMAPTorsionForceImpl::calcMapDerivatives(size, energy, c);
-        currentPosition += 4*size*size;
         for (int j = 0; j < size*size; j++) {
             coeffVec.push_back(make_float4((float) c[j][0], (float) c[j][1], (float) c[j][2], (float) c[j][3]));
             coeffVec.push_back(make_float4((float) c[j][4], (float) c[j][5], (float) c[j][6], (float) c[j][7]));
@@ -4770,7 +4768,6 @@ double CudaCalcCustomHbondForceKernel::execute(ContextImpl& context, bool includ
     }
     if (!hasInitializedKernel) {
         hasInitializedKernel = true;
-        int index = 0;
         donorArgs.push_back(&cu.getForce().getDevicePointer());
         donorArgs.push_back(&cu.getEnergyBuffer().getDevicePointer());
         donorArgs.push_back(&cu.getPosq().getDevicePointer());
@@ -4790,7 +4787,6 @@ double CudaCalcCustomHbondForceKernel::execute(ContextImpl& context, bool includ
             donorArgs.push_back(&buffer.getMemory());
         for (auto& function : tabulatedFunctions)
             donorArgs.push_back(&function.getDevicePointer());
-        index = 0;
         acceptorArgs.push_back(&cu.getForce().getDevicePointer());
         acceptorArgs.push_back(&cu.getEnergyBuffer().getDevicePointer());
         acceptorArgs.push_back(&cu.getPosq().getDevicePointer());
@@ -6724,8 +6720,7 @@ void CudaCalcCustomCVForceKernel::initialize(const System& system, const CustomC
         cu.addEnergyParameterDerivative(param);
     
     // Create arrays for storing information.
-    
-    int elementSize = (cu.getUseDoublePrecision() || cu.getUseMixedPrecision() ? sizeof(double) : sizeof(float));
+
     cvForces.resize(numCVs);
     for (int i = 0; i < numCVs; i++)
         cvForces[i].initialize<long long>(cu, 3*cu.getPaddedNumAtoms(), "cvForce");

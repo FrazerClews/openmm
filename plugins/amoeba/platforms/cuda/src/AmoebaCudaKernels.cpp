@@ -1328,7 +1328,6 @@ double CudaCalcAmoebaMultipoleForceKernel::execute(ContextImpl& context, bool in
     int startTileIndex = nb.getStartTileIndex();
     int numTileIndices = nb.getNumTiles();
     int numForceThreadBlocks = nb.getNumForceThreadBlocks();
-    int elementSize = (cu.getUseDoublePrecision() ? sizeof(double) : sizeof(float));
     if (!pmeGrid.isInitialized()) {
         // Compute induced dipoles.
         

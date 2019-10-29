@@ -2250,7 +2250,6 @@ void AmoebaReferenceGeneralizedKirkwoodMultipoleForce::calculateFixedMultipoleFi
     // get deltaR, R2, and R between 2 atoms
 
     Vec3 deltaR              = particleJ.position - particleI.position;
-    double r                 = sqrt(deltaR.dot(deltaR));
     double rb2               = _bornRadii[particleI.particleIndex]*_bornRadii[particleJ.particleIndex];
 
     double ci                = particleI.charge;
@@ -2481,7 +2480,6 @@ void AmoebaReferenceGeneralizedKirkwoodMultipoleForce::calculateInducedDipolePai
     double a[3][3];
 
     Vec3 deltaR              = particleJ.position - particleI.position;
-    double r                 = sqrt(deltaR.dot(deltaR));
 
     double xr                = deltaR[0];
     double yr                = deltaR[1];
@@ -2665,7 +2663,6 @@ double AmoebaReferenceGeneralizedKirkwoodMultipoleForce::calculateKirkwoodPairIx
     // decide whether to compute the current interaction
 
     Vec3 deltaR = particleJ.position - particleI.position;
-    double r = sqrt(deltaR.dot(deltaR));
 
     xr           = deltaR[0];
     yr           = deltaR[1];

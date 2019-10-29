@@ -102,7 +102,6 @@ void* StateProxy::deserialize(const SerializationNode& node) const {
     Vec3 outBVec(BVec.getDoubleProperty("x"),BVec.getDoubleProperty("y"),BVec.getDoubleProperty("z"));
     const SerializationNode& CVec = boxVectorsNode.getChildNode("C");
     Vec3 outCVec(CVec.getDoubleProperty("x"),CVec.getDoubleProperty("y"),CVec.getDoubleProperty("z"));
-    int types = 0;
     vector<int> arraySizes;
     State::StateBuilder builder(outTime);
     for (auto& child : node.getChildren()) {

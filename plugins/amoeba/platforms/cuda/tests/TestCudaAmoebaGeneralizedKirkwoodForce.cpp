@@ -88,7 +88,6 @@ static void setupMultipoleAmmonia(System& system, AmoebaGeneralizedKirkwoodForce
     // beginning of Multipole setup
 
     AmoebaMultipoleForce* amoebaMultipoleForce        = new AmoebaMultipoleForce();;
-    int numberOfParticles                             = 8;
 
     amoebaMultipoleForce->setNonbondedMethod(AmoebaMultipoleForce::NoCutoff);
     amoebaMultipoleForce->setPolarizationType(polarizationType);
@@ -7085,9 +7084,6 @@ static void testGeneralizedKirkwoodAmmoniaDirectPolarization() {
 
 static void testGeneralizedKirkwoodAmmoniaExtrapolatedPolarization() {
 
-    std::string testName      = "testGeneralizedKirkwoodAmmoniaExtrapolatedPolarization";
-
-    int numberOfParticles     = 8;
     std::vector<Vec3> forces;
     double energy;
 
@@ -7820,9 +7816,6 @@ static void testGeneralizedKirkwoodVillinDirectPolarization() {
 
 static void testGeneralizedKirkwoodVillinExtrapolatedPolarization() {
 
-    std::string testName      = "testGeneralizedKirkwoodVillinExtrapolatedPolarization";
-
-    int numberOfParticles     = 596;
     std::vector<Vec3> forces;
     double energy;
 

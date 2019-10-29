@@ -39,10 +39,6 @@ OpenCLCompact::OpenCLCompact(OpenCLContext& context) : context(context) {
 void OpenCLCompact::compactStream(OpenCLArray& dOut, OpenCLArray& dIn, OpenCLArray& dValid, OpenCLArray& numValid) {
     // Figure out # elements per block
     unsigned int len = dIn.getSize();
-    unsigned int numBlocks = context.getNumThreadBlocks();
-    if (numBlocks*128 > len)
-        numBlocks = (len+127)/128;
-    const size_t eltsPerBlock = len/numBlocks + ((len % numBlocks) ? 1 : 0);
 
     // TODO: implement loop over blocks of 10M
     // Phase 1: Calculate number of valid elements per thread block

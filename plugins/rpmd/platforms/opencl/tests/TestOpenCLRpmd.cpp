@@ -171,7 +171,6 @@ void testParaHydrogen() {
     vector<int> counts(numBins, 0);
     const double invBoxSize = 1.0/boxSize;
     double meanKE = 0.0;
-    const double hbar = 1.054571628e-34*AVOGADRO/(1000*1e-12);
     for (int step = 0; step < numSteps; step++) {
         integ.step(20);
         vector<State> states(numCopies);

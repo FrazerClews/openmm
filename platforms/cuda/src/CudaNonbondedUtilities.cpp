@@ -157,7 +157,6 @@ static bool compareUshort2(ushort2 a, ushort2 b) {
 }
 
 void CudaNonbondedUtilities::initialize(const System& system) {
-    string errorMessage = "Error initializing nonbonded utilities";    
     if (atomExclusions.size() == 0) {
         // No exclusions were specifically requested, so just mark every atom as not interacting with itself.
         

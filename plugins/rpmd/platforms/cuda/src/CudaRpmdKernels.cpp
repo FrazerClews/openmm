@@ -212,7 +212,6 @@ void CudaIntegrateRPMDStepKernel::execute(ContextImpl& context, const RPMDIntegr
     // Apply the PILE-L thermostat again.
 
     if (integrator.getApplyThermostat()) {
-        randomIndex = integration.prepareRandomNumbers(numParticles*numCopies);
         cu.executeKernel(pileKernel, pileArgs, numParticles*numCopies, workgroupSize);
     }
 

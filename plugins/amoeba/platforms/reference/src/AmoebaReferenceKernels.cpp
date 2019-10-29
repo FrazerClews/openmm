@@ -537,7 +537,6 @@ void ReferenceCalcAmoebaMultipoleForceKernel::initialize(const System& system, c
 
     int dipoleIndex      = 0;
     int quadrupoleIndex  = 0;
-    double totalCharge   = 0.0;
     for (int ii = 0; ii < numMultipoles; ii++) {
 
         // multipoles
@@ -549,7 +548,6 @@ void ReferenceCalcAmoebaMultipoleForceKernel::initialize(const System& system, c
         force.getMultipoleParameters(ii, charge, dipolesD, quadrupolesD, axisType, multipoleAtomZ, multipoleAtomX, multipoleAtomY,
                                      tholeD, dampingFactorD, polarityD);
 
-        totalCharge                       += charge;
         axisTypes[ii]                      = axisType;
         multipoleAtomZs[ii]                = multipoleAtomZ;
         multipoleAtomXs[ii]                = multipoleAtomX;
