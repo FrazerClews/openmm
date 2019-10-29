@@ -4879,13 +4879,9 @@ const double AmoebaReferencePmeMultipoleForce::SQRT_PI = 1.77245385091;
 AmoebaReferencePmeMultipoleForce::AmoebaReferencePmeMultipoleForce() :
                AmoebaReferenceMultipoleForce(PME),
                _cutoffDistance(1.0), _cutoffDistanceSquared(1.0),
-               _pmeGridSize(0), _totalGridSize(0), _alphaEwald(0.0)
-{
-
-    _fftplan = NULL;
-    _pmeGrid = NULL;
-    _pmeGridDimensions = IntVec(-1, -1, -1);
-}
+               _pmeGridSize(0), _totalGridSize(0), _alphaEwald(0.0),
+               _fftplan = NULL, _pmeGrid = NULL, _pmeGridDimensions = IntVec(-1, -1, -1)
+{}
 
 AmoebaReferencePmeMultipoleForce::~AmoebaReferencePmeMultipoleForce()
 {

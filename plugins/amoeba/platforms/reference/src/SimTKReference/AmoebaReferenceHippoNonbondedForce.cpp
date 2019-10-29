@@ -1394,8 +1394,8 @@ const int AmoebaReferencePmeHippoNonbondedForce::AMOEBA_PME_ORDER = 5;
 const double AmoebaReferencePmeHippoNonbondedForce::SQRT_PI = sqrt(M_PI);
 
 AmoebaReferencePmeHippoNonbondedForce::AmoebaReferencePmeHippoNonbondedForce(const HippoNonbondedForce& force, const System& system) :
-               AmoebaReferenceHippoNonbondedForce(force) {
-    _fftplan = NULL;
+               AmoebaReferenceHippoNonbondedForce(force),
+               _fftplan(NULL) {
     force.getPMEParameters(_alphaEwald, _pmeGridDimensions[0], _pmeGridDimensions[1], _pmeGridDimensions[2]);
     force.getDPMEParameters(_dalphaEwald, _dpmeGridDimensions[0], _dpmeGridDimensions[1], _dpmeGridDimensions[2]);
     if (_alphaEwald == 0.0 || _dalphaEwald == 0.0) {
