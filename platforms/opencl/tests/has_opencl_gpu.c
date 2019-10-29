@@ -55,7 +55,7 @@ int check_devices(cl_platform_id platform_id)
         return 1;
     for (d = 0; d < num_devices; ++d) {
         clGetDeviceInfo(devices[d], CL_DEVICE_NAME, 500, dname, &namesize);
-        printf("Device #%d name = %s\n", d, dname);
+        printf("Device #%zu name = %s\n", d, dname);
     }
     return 0;
 }
@@ -75,7 +75,7 @@ int main(int argc, char** argv)
         return 1;
     }
     for (p = 0; p < num_platforms; ++p) {
-        printf("Checking platform ID %d\n", p);
+        printf("Checking platform ID %zu\n", p);
         status = check_devices(platforms[p]);
         if (status == 0)
             return status; // found GPU
